@@ -1,4 +1,5 @@
   (() => {
+  const inputX = document.querySelector("[name=x-fn]");
   const inputY = document.querySelector("[name=y-fn]");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
@@ -17,11 +18,11 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("t");
+  setAndDraw("0","t");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputY.value);
+    draw(inputX.value, inputY.value);
   });
 
   const examples = [
@@ -51,19 +52,23 @@
     });
   })();
 
-  function setAndDraw(exprY) {
+  function setAndDraw(exprX, exprY) {
+    inputX.value = exprX;
     inputY.value = exprY;
-    draw(exprY);
+    draw(exprX, exprY);
   }
 
   function draw(exprX, exprY) {
+    const compiledX = window.math.compile(exprX);
     const compiledY = window.math.compile(exprY);
     drawCartesian(
+      compiledX,
       compiledY,
       unitsPerAxe,
       renderCartesian
     );
     drawPolar(
+      compiledX,
       compiledY,
       unitsPerAxe,
       renderPolar
@@ -254,6 +259,7 @@ function drawPolar(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
     for (let t = -500; t < 500; t += 0.02)  {
+    const angle = exprY.eval({ t });
     const radius = exprY.eval({ t });
 
     if (radius < 0) {
