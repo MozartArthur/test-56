@@ -1,6 +1,5 @@
   (() => {
   const inputY = document.querySelector("[name=y-fn]");
-  const unitsPerAxe = document.getElementById("Axe");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
   const canvas1 = document.querySelector("#cartesian");
@@ -14,7 +13,7 @@
       "Sorry, your system doesn't seem to support WebGL"
     );
   }
-
+  const unitsPerAxe = document.getElementById("Axe");
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
