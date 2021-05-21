@@ -1,11 +1,13 @@
   (() => {
   const inputY = document.querySelector("[name=y-fn]");
+  const unitsPerAxe = document.querySelector("[name=scale]")
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
   const canvas1 = document.querySelector("#cartesian");
   const canvas2 = document.querySelector("#polar");
   const cartesianGl = canvas1.getContext("webgl");
   const polarGl = canvas2.getContext("webgl");
+
 
   if (!cartesianGl || !polarGl) {
     return alert(
