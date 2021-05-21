@@ -248,9 +248,9 @@ function getBasis(unitsPerAxe) {
 function drawCartesian(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
-  for (let t = -1000; t < 1000; t += 0.05) {
-    const y = exprY.eval({ t });
-    components.push(y, t);
+  for (let x = -1000; x < 1000; x += 0.05) {
+    const y = exprY.eval({ x });
+    components.push(y, x);
   }
 
   draw(components, unitsPerAxe, render);
