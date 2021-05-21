@@ -18,11 +18,11 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("t","t/2");
+ 
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputX.value, inputY.value);
+    draw(inputY.value);
   });
 
   const examples = [
@@ -52,10 +52,9 @@
     });
   })();
 
-  function setAndDraw(exprX,exprY) {
+  function setAndDraw(exprY) {
     inputY.value = exprY;
-    inputY.value = exprX;
-    draw(exprX,exprY);
+    draw(exprY);
   }
 
   function draw(exprX, exprY) {
