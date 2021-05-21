@@ -26,20 +26,17 @@
     <canvas id="cartesian" width="300" height="300"></canvas>
     <canvas id="polar" width="300" height="300"></canvas>
   </div>
-  <div class="""slidecontainer">
-    <label> 
-      Маштаб! 
-      <input 
-          type="range" 
-          id="Axe"
-          step="2" 
-          min="8" 
-          max="100" 
-          value="8" 
-          class="slider" 
-          />
-    </label>
-  </div>
+    <div class="inputs">
+      <label>
+        Маштаб =
+        <input
+          type="text"
+          name="Axe"
+          autocapitalize="none"
+          autocorrect="off"
+        />
+      </label>
+    </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.9.0/math.min.js"></script>
   <script src="index.js"></script>
 </body>
