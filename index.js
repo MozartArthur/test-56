@@ -129,7 +129,7 @@ function initGl(gl, unitsPerAxe) {
   gl.enableVertexAttribArray(positionAttributeLocation);
   gl.vertexAttribPointer(
     positionAttributeLocation,
-    2,        // components per iteration
+    5,        // components per iteration
     gl.FLOAT, // data type
     false,    // no data normalization
     0,        // stride
