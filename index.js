@@ -43,20 +43,20 @@
     let exampleIndex = 1;
 
     example.addEventListener("click", () => {
-      const [exX, exY] = examples[exampleIndex];
+      const [exY] = examples[exampleIndex];
       setAndDraw(exY)
-      exampleIndex = exampleIndex < examples.length 
-        ? exampleIndex
+      exampleIndex = exampleIndex < examples.length-1
+        ? exampleIndex+1
         : 0;
     });
   })();
 
-  function setAndDraw(exprX, exprY) {
+  function setAndDraw(exprY) {
     inputY.value = exprY;
     draw(exprY);
   }
 
-  function draw(exprX, exprY) {
+  function draw(exprY) {
     const compiledX = window.math.compile(exprY);
     const compiledY = window.math.compile(exprY);
     drawCartesian(
