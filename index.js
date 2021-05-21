@@ -15,7 +15,7 @@
     );
   }
   
- const unitsPerAxe = document.getElementById("Axe").addEventListener("change", function() {
+  const unitsPerAxe = document.getElementById("Axe").addEventListener("change", function() {
                       console.log(this.value);
                      });
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
