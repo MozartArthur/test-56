@@ -45,8 +45,8 @@
     example.addEventListener("click", () => {
       const [exX, exY] = examples[exampleIndex];
       setAndDraw(exY)
-      exampleIndex = exampleIndex < examples.length - 1
-        ? exampleIndex + 1
+      exampleIndex = exampleIndex < examples.length 
+        ? exampleIndex
         : 0;
     });
   })();
