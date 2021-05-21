@@ -1,5 +1,4 @@
   (() => {
-  const inputX = document.querySelector("[name=x-fn]");
   const inputY = document.querySelector("[name=y-fn]");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
@@ -18,11 +17,11 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("0","t/2");
+  setAndDraw("0","t");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputX.value, inputY.value);
+    draw(inputY.value);
   });
 
   const examples = [
@@ -52,14 +51,13 @@
     });
   })();
 
-  function setAndDraw(exprX, exprY) {
-    inputX.value = exprX;
+  function setAndDraw(exprY) {
     inputY.value = exprY;
-    draw(exprX, exprY);
+    draw(exprY);
   }
 
   function draw(exprX, exprY) {
-    const compiledX = window.math.compile(exprX);
+    const compiledX = window.math.compile(exprY);
     const compiledY = window.math.compile(exprY);
     drawCartesian(
       compiledX,
