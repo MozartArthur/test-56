@@ -247,8 +247,9 @@ function drawCartesian(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
   for (let t = -1000; t < 1000; t += 0.05) {
+    const x = exprX.eval({ t });
     const y = exprY.eval({ t });
-    components.push(y, t);
+    components.push(x, y);
   }
 
   draw(components, unitsPerAxe, render);
@@ -257,15 +258,18 @@ function drawCartesian(exprX, exprY, unitsPerAxe, render) {
 function drawPolar(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
-  for (let angle = -1000;angle < 1000; angle += 0.01) {
+  for (let t = -1000; t < 1000; t += 0.01) {
+    const angle = exprX.eval({ t });
     const radius = exprY.eval({ t });
 
     if (radius < 0) {
       continue;
     }
+
+    const x = radius * Math.cos(angle);
     const y = radius * Math.sin(angle);
-    const t = radius * Math.cos(angle);
-    components.push(t, y);
+
+    components.push(x, y);
   }
 
   draw(components, unitsPerAxe, render);
