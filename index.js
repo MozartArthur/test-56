@@ -249,7 +249,7 @@ const components = [];
 
 for (let t = -1000; t < 1000; t += 0.05) {
 const y = exprY.eval({ t });
-components.push(y, t);
+components.push(t, y);
 }
 
 draw(components, unitsPerAxe, render);
