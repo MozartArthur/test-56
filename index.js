@@ -17,11 +17,11 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("0","t");
+  setAndDraw("t/2");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputY.value, inputY.value);
+    draw(inputY.value);
   });
 
   const examples = [
@@ -44,7 +44,7 @@
 
     example.addEventListener("click", () => {
       const [exX, exY] = examples[exampleIndex];
-      setAndDraw(exX, exY)
+      setAndDraw(exY)
       exampleIndex = exampleIndex < examples.length - 1
         ? exampleIndex + 1
         : 0;
@@ -53,7 +53,7 @@
 
   function setAndDraw(exprX, exprY) {
     inputY.value = exprY;
-    draw(exprY, exprY);
+    draw(exprY);
   }
 
   function draw(exprX, exprY) {
