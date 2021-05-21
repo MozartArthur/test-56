@@ -13,7 +13,7 @@
       "Sorry, your system doesn't seem to support WebGL"
     );
   }
-  const unitsPerAxe = document.getElementById("Axe");
+  const unitsPerAxe = document.querySelector("#Axe");
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
