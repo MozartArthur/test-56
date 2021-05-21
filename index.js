@@ -22,7 +22,7 @@
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputX.value, inputY.value);
+    draw(inputY.value, inputY.value);
   });
 
   const examples = [
@@ -53,13 +53,13 @@
   })();
 
   function setAndDraw(exprX, exprY) {
-    inputY.value = exprX;
+    inputX.value = exprY;
     inputY.value = exprY;
     draw(exprX, exprY);
   }
 
   function draw(exprX, exprY) {
-    const compiledX = window.math.compile(exprX);
+    const compiledX = window.math.compile(exprY);
     const compiledY = window.math.compile(exprY);
     drawCartesian(
       compiledX,
