@@ -1,6 +1,6 @@
   (() => {
   const inputY = document.querySelector("[name=y-fn]");
-  const unitsPerAxe = document.getElementById('name=scale')
+  const unitsPerAxe = document.getElementById("Axe");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
   const canvas1 = document.querySelector("#cartesian");
