@@ -18,7 +18,7 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("t", "t/2");
+  setAndDraw("t/2");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
