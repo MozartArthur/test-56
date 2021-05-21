@@ -14,6 +14,10 @@
       "Sorry, your system doesn't seem to support WebGL"
     );
   }
+  
+ const unitsPerAxe = document.getElementById("Axe").addEventListener("change", function() {
+                      console.log(this.value);
+                     });
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
