@@ -56,17 +56,15 @@
     draw(exprY);
   }
 
-  function draw(exprX, exprY) {
-    const compiledX = window.math.compile(exprX);
+  function draw( exprY) {
+ 
     const compiledY = window.math.compile(exprY);
     drawCartesian(
-      compiledX,
       compiledY,
       unitsPerAxe,
       renderCartesian
     );
     drawPolar(
-      compiledX,
       compiledY,
       unitsPerAxe,
       renderPolar
