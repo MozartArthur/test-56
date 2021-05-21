@@ -1,5 +1,4 @@
 (() => {
-  const inputX = document.querySelector("[name=x-fn]");
   const inputY = document.querySelector("[name=y-fn]");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
@@ -22,7 +21,7 @@
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputX.value, inputY.value);
+    draw(inputY.value);
   });
 
   const examples = [
