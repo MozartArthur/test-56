@@ -17,13 +17,13 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("sin(t)");
+  setAndDraw("0","t");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
     draw(inputY.value, inputY.value);
   });
-    
+
   const examples = [
     ["cos(t)", "sin(t)"],
     ["2 * cos(t)^3", "2 * sin(t)^3"],
@@ -51,7 +51,7 @@
     });
   })();
 
-  function setAndDraw(exprX = 0, exprY) {
+  function setAndDraw(exprX, exprY) {
     inputY.value = exprY;
     draw(exprY, exprY);
   }
