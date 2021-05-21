@@ -22,7 +22,7 @@
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputX.value, inputY.value);
+    draw(inputY.value, inputY.value);
   });
 
   const examples = [
@@ -44,8 +44,8 @@
     let exampleIndex = 1;
 
     example.addEventListener("click", () => {
-      const [exX, exY] = examples[exampleIndex];
-      setAndDraw(exX, exY)
+      const [exY, exY] = examples[exampleIndex];
+      setAndDraw(exY, exY)
       exampleIndex = exampleIndex < examples.length - 1
         ? exampleIndex + 1
         : 0;
@@ -53,22 +53,20 @@
   })();
 
   function setAndDraw(exprX, exprY) {
-    inputX.value = exprX;
     inputY.value = exprY;
-    draw(exprX, exprY);
+    draw(exprY, exprY);
   }
 
   function draw(exprX, exprY) {
-    const compiledX = window.math.compile(exprX);
     const compiledY = window.math.compile(exprY);
     drawCartesian(
-      compiledX,
+      compiledY,
       compiledY,
       unitsPerAxe,
       renderCartesian
     );
     drawPolar(
-      compiledX,
+      compiledY,
       compiledY,
       unitsPerAxe,
       renderPolar
