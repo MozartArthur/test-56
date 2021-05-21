@@ -1,5 +1,4 @@
   (() => {
-  const inputX = document.querySelector("[name=x-fn]");
   const inputY = document.querySelector("[name=y-fn]");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
@@ -53,9 +52,8 @@
   })();
 
   function setAndDraw(exprX, exprY) {
-    inputX.value = exprY;
     inputY.value = exprY;
-    draw(exprX, exprY);
+    draw(exprY, exprY);
   }
 
   function draw(exprX, exprY) {
