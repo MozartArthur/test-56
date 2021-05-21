@@ -259,7 +259,6 @@ function drawPolar(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
     for (let t = -500; t < 500; t += 0.02)  {
-    const angle = exprY.eval({ t });
     const radius = exprY.eval({ t });
 
     if (radius < 0) {
