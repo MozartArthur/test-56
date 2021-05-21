@@ -13,7 +13,7 @@
     );
   }
 
-  const unitsPerAxe = 8;
+  const unitsPerAxe = 16;
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
@@ -129,7 +129,7 @@ function initGl(gl, unitsPerAxe) {
   gl.enableVertexAttribArray(positionAttributeLocation);
   gl.vertexAttribPointer(
     positionAttributeLocation,
-    5,        // components per iteration
+    2,        // components per iteration
     gl.FLOAT, // data type
     false,    // no data normalization
     0,        // stride
@@ -221,7 +221,7 @@ function makeRender(gl, colorUniformLocation) {
 }
 
 function getBasis(unitsPerAxe) {
-  const semiAxisUnits = unitsPerAxe / 5;
+  const semiAxisUnits = unitsPerAxe / 2;
   const axes = {
     primitive: WebGLRenderingContext.LINES,
     color: [0.2, 0.2, 0.2, 1],
