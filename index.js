@@ -13,7 +13,7 @@
     );
   }
 
-  const unitsPerAxe = 100;
+  const unitsPerAxe = 16;
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
