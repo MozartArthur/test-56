@@ -25,7 +25,7 @@
   });
 
   const examples = [
-    ["cos(t)", "sin(t)"],
+    ["sin(t)"],
     ["2 * cos(t)^3", "2 * sin(t)^3"],
     ["log(t) - sin(t)", "sin(t)"],
     ["t * 100", "t"],
