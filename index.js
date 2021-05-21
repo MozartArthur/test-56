@@ -1,4 +1,5 @@
 (() => {
+  const inputX = document.querySelector("[name=x-fn]");
   const inputY = document.querySelector("[name=y-fn]");
   const submit = document.querySelector("[type=submit]");
   const example = document.querySelector("[type=button]");
@@ -17,11 +18,11 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
- 
+  setAndDraw("t", "t/2");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
-    draw(inputY.value);
+    draw(inputX.value, inputY.value);
   });
 
   const examples = [
@@ -51,20 +52,23 @@
     });
   })();
 
-  function setAndDraw(exprY) {
+  function setAndDraw(exprX, exprY) {
+    inputX.value = exprX;
     inputY.value = exprY;
-    draw(exprY);
+    draw(exprX, exprY);
   }
 
-  function draw( exprY) {
- 
+  function draw(exprX, exprY) {
+    const compiledX = window.math.compile(exprX);
     const compiledY = window.math.compile(exprY);
     drawCartesian(
+      compiledX,
       compiledY,
       unitsPerAxe,
       renderCartesian
     );
     drawPolar(
+      compiledX,
       compiledY,
       unitsPerAxe,
       renderPolar
@@ -78,16 +82,13 @@ function initGl(gl, unitsPerAxe) {
   const vertexShaderSource = `
     attribute vec2 a_position;
     uniform float u_scale;
-
     void main() {
       gl_Position = vec4(a_position.xy / u_scale, 0, 1);
     }
   `;
   const fragmentShaderSource = `
     precision mediump float;
-
     uniform vec4 u_color;
-
     void main() {
       gl_FragColor = u_color;
     }
@@ -245,15 +246,34 @@ function getBasis(unitsPerAxe) {
 function drawCartesian(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
-  for (let x = -1000; x < 1000; x += 0.05) {
-    const y = exprY.eval({ x });
-    components.push(y);
+  for (let t = -1000; t < 1000; t += 0.05) {
+    const x = exprX.eval({ t });
+    const y = exprY.eval({ t });
+    components.push(x, y);
   }
 
   draw(components, unitsPerAxe, render);
 }
 
+function drawPolar(exprX, exprY, unitsPerAxe, render) {
+  const components = [];
 
+  for (let t = -1000; t < 1000; t += 0.01) {
+    const angle = exprX.eval({ t });
+    const radius = exprY.eval({ t });
+
+    if (radius < 0) {
+      continue;
+    }
+
+    const x = radius * Math.cos(angle);
+    const y = radius * Math.sin(angle);
+
+    components.push(x, y);
+  }
+
+  draw(components, unitsPerAxe, render);
+}
 
 function draw(components, unitsPerAxe, renderFunc) {
   return renderFunc([
@@ -265,4 +285,3 @@ function draw(components, unitsPerAxe, renderFunc) {
     }
   ]);
 }
-
