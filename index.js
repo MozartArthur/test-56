@@ -18,7 +18,7 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("0","t/3");
+  setAndDraw("0","t/2");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
@@ -258,7 +258,7 @@ draw(components, unitsPerAxe, render);
 function drawPolar(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
-    for (let t = -1000; t < 1000; t += 0.01)  {
+    for (let t = -1000; t < 1000; t += 0.02)  {
     const angle = exprY.eval({ t });
     const radius = exprY.eval({ t });
 
