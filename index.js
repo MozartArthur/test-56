@@ -52,10 +52,9 @@
     });
   })();
 
-  function setAndDraw(exprX, exprY) {
-    inputX.value = exprX;
+  function setAndDraw(exprY) {
     inputY.value = exprY;
-    draw(exprX, exprY);
+    draw(exprY);
   }
 
   function draw(exprX, exprY) {
