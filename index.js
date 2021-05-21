@@ -15,9 +15,7 @@
     );
   }
   
-  const unitsPerAxe = document.getElementById("Axe").addEventListener("change", function() {
-                      console.log(this.value);
-                     });
+  const unitsPerAxe = document.getElementById("Axe");
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
