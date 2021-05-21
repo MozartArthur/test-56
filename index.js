@@ -250,9 +250,8 @@ function drawCartesian(exprX, exprY, unitsPerAxe, render) {
   const components = [];
 
   for (let t = -1000; t < 1000; t += 0.05) {
-    const x = exprX.eval({ t });
     const y = exprY.eval({ t });
-    components.push(x, y);
+    components.push(y, t);
   }
 
   draw(components, unitsPerAxe, render);
