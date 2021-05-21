@@ -17,34 +17,34 @@
   const renderCartesian = initGl(cartesianGl, unitsPerAxe);
   const renderPolar = initGl(polarGl, unitsPerAxe);
 
-  setAndDraw("t");
+  setAndDraw("sin(t)");
 
   submit.addEventListener("click", event => {
     event.preventDefault();
     draw(inputY.value, inputY.value);
   });
-
+    
   const examples = [
-    ["sin(t)"],
-    ["2 * sin(t)^3"],
-    ["sin(t)"],
-    ["t"],
-    ["1 + sin(t * 4)"],
-    ["2 + abs(sin(t * 7)) / 3"],
-    ["tan(t)"],
-    ["sin(t * 4) * t/4"],
-    ["abs(t)"],
-    ["100 * cos(t)"],
-    ["cos(t)^3"],
-    ["5 * sin(t) + log(t)"],
+    ["cos(t)", "sin(t)"],
+    ["2 * cos(t)^3", "2 * sin(t)^3"],
+    ["log(t) - sin(t)", "sin(t)"],
+    ["t * 100", "t"],
+    ["t", "1 + sin(t * 4)"],
+    ["t", "2 + abs(sin(t * 7)) / 3"],
+    ["t / 2", "tan(t)"],
+    ["sin(t * 4) * t/4", "t"],
+    ["t^2", "abs(t)"],
+    ["100 * cos(t)", "abs(t) / 5"],
+    ["cos(t)^3", "3 * sin(t)^3 + log(t)"],
+    ["tan(t)^3", "5 * sin(t) + log(t)"],
   ];
 
   (() => {
     let exampleIndex = 1;
 
     example.addEventListener("click", () => {
-      const [exY] = examples[exampleIndex];
-      setAndDraw(exY)
+      const [exX, exY] = examples[exampleIndex];
+      setAndDraw(exX, exY)
       exampleIndex = exampleIndex < examples.length - 1
         ? exampleIndex + 1
         : 0;
